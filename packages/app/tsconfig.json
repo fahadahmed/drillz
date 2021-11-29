@@ -1,0 +1,27 @@
+{ 
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "public",
+    "baseUrl": ".",
+    "jsx": "react",
+    "resolveJsonModule": true
+  },
+  "paths": {
+    "@components/*": ["components/*"],
+    "@images/*": ["images/*"],
+    "@models/*": ["models/*"],
+    "@utils/*": ["utils/*"],
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "rules": {
+    "react/prop-types": ["off"]
+  }
+}
