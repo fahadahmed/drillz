@@ -6,5 +6,8 @@
   },
   "scripts": {
     "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "firebase": "^9.5.0"
   }
 }
