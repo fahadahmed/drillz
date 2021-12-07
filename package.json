@@ -5,7 +5,8 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "deploy-hosting": "firebase deploy --only hosting"
   },
   "dependencies": {
     "firebase": "^9.5.0"
