@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import "regenerator-runtime/runtime";
+import Routes from './pages/routes';
 
-ReactDOM.render(<div>Hello React</div>, document.querySelector('#root'));
+ReactDOM.render(<Routes />, document.querySelector('#root'));
