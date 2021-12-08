@@ -5,20 +5,19 @@ const dotenv = require('dotenv');
 const TsconfigPathPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = () => {
-
-  // call dotenv and it will return an Object with a parsed key 
+  // call dotenv and it will return an Object with a parsed key
   const env = dotenv.config().parsed;
-  
+
   // reduce it to a nice object, the same as before
   const envKeys = Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
     return prev;
   }, {});
 
-
   return [
     {
-      mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+      mode:
+        process.env.NODE_ENV === 'production' ? 'production' : 'development',
       entry: './src/index.tsx',
       output: {
         filename: 'bundle.js',
@@ -67,8 +66,8 @@ module.exports = () => {
           minify: {
             collapseWhitespace: true,
           },
-        })
+        }),
       ],
     },
   ];
-} 
+};

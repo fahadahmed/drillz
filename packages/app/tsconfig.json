@@ -1,4 +1,4 @@
-{ 
+{
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
@@ -16,11 +16,9 @@
     "@components/*": ["components/*"],
     "@images/*": ["images/*"],
     "@models/*": ["models/*"],
-    "@utils/*": ["utils/*"],
+    "@utils/*": ["utils/*"]
   },
-  "include": [
-    "./src/**/*"
-  ],
+  "include": ["./src/**/*"],
   "rules": {
     "react/prop-types": ["off"]
   }
