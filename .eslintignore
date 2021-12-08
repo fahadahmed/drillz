@@ -1,0 +1,10 @@
+node_modules
+build
+dist
+types
+lib
+out
+coverage
+__generated__
+generated
+packages/*/types

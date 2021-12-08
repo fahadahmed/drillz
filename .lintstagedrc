@@ -1,0 +1,10 @@
+{
+ "*.+(js|ts|tsx)": [
+    "npx prettier --write",
+    "eslint --fix",
+    "git add",
+  ],
+  "*.+(js|tsx)": [
+    "stylelint",
+  ],
+}

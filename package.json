@@ -2,13 +2,27 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "lerna": "^4.0.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0"
   },
   "scripts": {
     "deploy": "firebase deploy",
     "deploy-hosting": "firebase deploy --only hosting"
   },
   "dependencies": {
-    "firebase": "^9.5.0"
+    "eslint": "^8.4.1",
+    "firebase": "^9.5.0",
+    "prettier": "^2.5.1"
   }
 }
