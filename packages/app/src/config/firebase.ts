@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore, collection, getDocs, connectFirestoreEmulator } from 'firebase/firestore/lite';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, connectAuthEmulator } from 'firebase/auth';
 import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
@@ -16,7 +16,10 @@ const firebaseConfig = {
 const fire = initializeApp(firebaseConfig);
 const db = getFirestore();
 const auth = getAuth();
-const analytics = getAnalytics(fire);
+const analytics = getAnalytics();
+
+connectFirestoreEmulator(db, 'localhost', 8080);
+connectAuthEmulator(auth, 'http://localhost:9099')
 
 export default fire;
 export { 
