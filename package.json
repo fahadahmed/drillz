@@ -1,0 +1,12 @@
+{
+  "name": "drillz",
+  "version": "0.0.1",
+  "description": "A habit tracker app",
+  "main": "index.js",
+  "repository": "https://github.com/Coding-Pixels/drillz.git",
+  "author": "Fahad Ahmed <fahad.ahmed@me.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
