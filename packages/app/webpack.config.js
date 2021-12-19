@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-mixed-spaces-and-tabs */
-import { DefinePlugin } from 'webpack';
-import { resolve as _resolve, join } from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { config } from 'dotenv';
-import TsconfigPathPlugin from 'tsconfig-paths-webpack-plugin';
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv');
+const TsconfigPathPlugin = require('tsconfig-paths-webpack-plugin');
 
-export default () => {
+
+module.exports = () => {
 	// call dotenv and it will return an Object with a parsed key
-	const env = config().parsed;
+	const env = dotenv.config().parsed;
 
 	// reduce it to a nice object, the same as before
 	const envKeys = Object.keys(env).reduce((prev, next) => {
@@ -24,7 +26,7 @@ export default () => {
 			entry: './src/index.tsx',
 			output: {
 				filename: 'bundle.js',
-				path: _resolve(__dirname, 'public'),
+				path: path.resolve(__dirname, 'public'),
 			},
 			module: {
 				rules: [
@@ -69,7 +71,7 @@ export default () => {
 			},
 			devtool: 'inline-source-map',
 			devServer: {
-				static: join(__dirname, 'public'),
+				static: path.join(__dirname, 'public'),
 				compress: true,
 				port: 3600,
 				open: true,
@@ -78,7 +80,7 @@ export default () => {
 				host: '0.0.0.0',
 			},
 			plugins: [
-				new DefinePlugin(envKeys),
+				new webpack.DefinePlugin(envKeys),
 				new HtmlWebpackPlugin({
 					title: 'Drillz | Habit Building and Tracking App',
 					template: './src/index.html',
