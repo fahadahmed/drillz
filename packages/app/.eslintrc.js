@@ -24,4 +24,9 @@ module.exports = {
 		quotes: ['error', 'single'],
 		semi: ['error', 'always'],
 	},
+	settings: {
+		react: {
+			version: 'detect'
+		}
+	}
 };
