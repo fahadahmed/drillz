@@ -1,18 +1,18 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 const TsconfigPathPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = () => {
-  // // call dotenv and it will return an Object with a parsed key
-  // const env = dotenv.config().parsed;
+  // call dotenv and it will return an Object with a parsed key
+  const env = dotenv.config().parsed;
 
-  // // reduce it to a nice object, the same as before
-  // const envKeys = Object.keys(env).reduce((prev, next) => {
-  //   prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  //   return prev;
-  // }, {});
+  // reduce it to a nice object, the same as before
+  const envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+  }, {});
 
   return [
     {
@@ -59,7 +59,7 @@ module.exports = () => {
         host: '0.0.0.0',
       },
       plugins: [
-        // new webpack.DefinePlugin(envKeys),
+        new webpack.DefinePlugin(envKeys),
         new HtmlWebpackPlugin({
           title: 'Drillz | Habit Building and Tracking App',
           template: './src/index.html',
