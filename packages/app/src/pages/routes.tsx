@@ -6,8 +6,10 @@ function AppRoutes() {
   return (
     <Router>
       <Routes>
-        <Route path="/" component={<App />} />
+        <Route path="/" element={<App />} />
       </Routes>
     </Router>
   )
 }
+
+export default AppRoutes;
