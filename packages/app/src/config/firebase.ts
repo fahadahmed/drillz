@@ -3,6 +3,7 @@ import {
   getFirestore,
   collection,
   getDocs,
+  addDoc,
   connectFirestoreEmulator,
 } from 'firebase/firestore/lite';
 import {
@@ -37,6 +38,7 @@ export {
   auth,
   collection,
   getDocs,
+  addDoc,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   analytics,
