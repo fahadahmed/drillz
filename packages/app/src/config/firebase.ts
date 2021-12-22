@@ -18,15 +18,15 @@ const firebaseConfig = {
   authDomain: process.env.DRILLZ_APP_AUTH_DOMAIN,
   projectId: process.env.DRILLZ_APP_PROJECT_ID,
   storageBucket: process.env.DRILLZ_APP_STORAGE_BUCKET,
-  messengerSenderId: process.env.DRILLZ_APP_MESSENGER_SENDER_ID,
+  messagingSenderId: process.env.DRILLZ_APP_MESSAGING_SENDER_ID,
   appId: process.env.DRILLZ_APP_APP_ID,
   measurementId: process.env.DRILLZ_APP_MEASUREMENT_ID,
 };
 
 const fire = initializeApp(firebaseConfig);
-const db = getFirestore();
-const auth = getAuth();
-const analytics = getAnalytics();
+const db = getFirestore(fire);
+const auth = getAuth(fire);
+const analytics = getAnalytics(fire);
 
 connectFirestoreEmulator(db, 'localhost', 8080);
 connectAuthEmulator(auth, 'http://locahost:9099');
