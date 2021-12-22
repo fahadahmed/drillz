@@ -10,14 +10,11 @@ const Container = styled.div`
 `;
 
 function App() {
-
   console.log(process.env.DRILLZ_APP_PROJECT_ID);
 
   const [tasks, setTasks] = useState(null);
   const [todo, setTodo] = useState('');
   const dbRef = collection(db, 'tasks');
-
-
 
   const handleAddTask = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -40,19 +37,25 @@ function App() {
     description: string;
     status: string;
     id: string;
-  }
+  };
 
   return (
     <Container>
       <h1>Sample Todo App to check Firebase Integration</h1>
       <form onSubmit={handleAddTask} id="add-task-form">
-        <input type="text" name="addTask" placeholder="What do you need to do?" onChange={e => setTodo(e.target.value)} />
+        <input
+          type="text"
+          name="addTask"
+          placeholder="What do you need to do?"
+          onChange={(e) => setTodo(e.target.value)}
+        />
         <button type="submit">Add Task</button>
       </form>
       <div>
-        {tasks && tasks.map((task: Task) =>
-          <div key={task.id}>{task.description}</div>
-        )}
+        {tasks &&
+          tasks.map((task: Task) => (
+            <div key={task.id}>{task.description}</div>
+          ))}
       </div>
     </Container>
   );

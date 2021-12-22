@@ -59,8 +59,8 @@
     "start": "webpack serve",
     "lint": "yarn eslint . --ext .js,.ts,.tsx",
     "lint:fix": "yarn eslint . --ext .js,.ts,.tsx --fix",
-    "prettier": "yarn run prettier --check .",
-    "prettier:fix": "yarn run prettier --write .",
+    "prettier": "npx prettier --check .",
+    "prettier:fix": "npx prettier --write .",
     "clean": "rimraf ./public/*",
     "build": "npm run clean && NODE_ENV=production webpack --config webpack.config.js"
   }
