@@ -57,6 +57,9 @@ function App() {
             <div key={task.id}>{task.description}</div>
           ))}
       </div>
+      <div>
+        <p>Testing the husky and lint-staged</p>
+      </div>
     </Container>
   );
 }
