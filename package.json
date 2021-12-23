@@ -6,12 +6,25 @@
   "repository": "https://github.com/Coding-Pixels/drillz.git",
   "author": "Fahad Ahmed <fahad.ahmed@me.com>",
   "license": "MIT",
+  "private": "true",
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "husky": "^7.0.0",
+    "lerna": "^4.0.0",
+    "lint-staged": "^12.1.3"
   },
   "workspaces": [
     "packages/app",
     "packages/website",
     "packages/functions"
-  ]
+  ],
+  "lint-staged": {
+    "packages/**/*.{ts,tsx}": [
+      "lerna run prettier:fix",
+      "lerna run lint:fix"
+    ]
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint:fix": "lerna run lint:fix"
+  }
 }
