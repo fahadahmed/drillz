@@ -1,3 +1,10 @@
-webpack.config.js
-node_modules/
 public/
+**/*.html
+.eslintrc.json
+.eslintrc.js
+yarn.lock
+package.json
+tsconfig.dev.json
+README.md
+**/*.png
+tsconfig.json
