@@ -25,6 +25,7 @@ jobs:
 
       - name: Build the project
         run: |
+          yarn
           yarn build
 
       - name: Deploy to Firebase
