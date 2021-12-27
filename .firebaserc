@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "drillz-production"
+  },
+  "targets": {
+    "drillz-production": {
+      "hosting": {
+        "app": [
+          "drillz-production"
+        ],
+        "website": [
+          "web-drillz"
+        ]
+      }
+    }
+  }
+}

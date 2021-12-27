@@ -1,0 +1,25 @@
+{
+  "name": "drillz-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website",
+  "author": "Fahad Ahmed",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "gatsby": "^4.4.0",
+    "gatsby-plugin-emotion": "^7.4.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
