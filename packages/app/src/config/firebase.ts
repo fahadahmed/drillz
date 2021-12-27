@@ -5,7 +5,7 @@ import {
     getDocs,
     addDoc,
     connectFirestoreEmulator,
-} from 'firebase/firestore/lite';
+} from 'firebase/firestore';
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -29,8 +29,10 @@ const db = getFirestore(fire);
 const auth = getAuth(fire);
 const analytics = getAnalytics(fire);
 
-connectFirestoreEmulator(db, 'localhost', 8080);
-connectAuthEmulator(auth, 'http://locahost:9099');
+if (location.hostname === 'localhost') {
+    connectFirestoreEmulator(db, 'localhost', 8080);
+    connectAuthEmulator(auth, 'http://locahost:9099');
+}
 
 export default fire;
 export {
