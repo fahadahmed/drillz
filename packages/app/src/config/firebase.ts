@@ -26,12 +26,12 @@ const firebaseConfig = {
 
 const fire = initializeApp(firebaseConfig);
 const db = getFirestore(fire);
-const auth = getAuth(fire);
+const auth = getAuth();
 const analytics = getAnalytics(fire);
 
 if (location.hostname === 'localhost') {
   connectFirestoreEmulator(db, 'localhost', 8080);
-  connectAuthEmulator(auth, 'http://locahost:9099');
+  connectAuthEmulator(auth, 'http://localhost:9099');
 }
 
 export default fire;
