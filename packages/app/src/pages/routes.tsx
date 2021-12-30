@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { Register, Dashboard } from '.';
+import { Register, Dashboard, Login } from '.';
 import { AppContainer, AppContext } from '../components';
 
 function AppRoutes() {
@@ -25,5 +25,3 @@ function AppRoutes() {
 }
 
 export default AppRoutes;
-
-const Login = () => <div>Login Page</div>;

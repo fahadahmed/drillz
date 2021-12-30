@@ -1,10 +1,10 @@
 import React, { useState, useContext, SyntheticEvent } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AppContext } from '../../components';
-import { auth, createUserWithEmailAndPassword } from '../../config/firebase';
+import { auth, signInWithEmailAndPassword } from '../../config/firebase';
 import { Form, TextInput, Button } from '../../styles/common.styles';
 
-function Register() {
+function Login() {
   const [error, setError] = useState(null);
   const { currentUser } = useContext(AppContext);
 
@@ -15,38 +15,32 @@ function Register() {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
-      name: { value: string };
       email: { value: string };
       password: { value: string };
     };
-    // const name = target.name.value;
+
     const email = target.email.value;
     const password = target.password.value;
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        console.log(result.user);
-      })
-      .catch((err) => {
-        console.log(err);
-        setError(err.message);
-      });
+    signInWithEmailAndPassword(auth, email, password).catch((err) => {
+      console.log(err);
+      setError(err.message);
+    });
   };
 
   return (
     <div>
       <h1>
-        Drillz App <small>Register</small>
+        Drillz <small>Login</small>
       </h1>
       <Form onSubmit={handleSubmit}>
-        <TextInput type="text" name="name" placeholder="Enter your name" />
-        <TextInput type="text" name="email" placeholder="Enter your email" />
-        <TextInput type="password" name="password" placeholder="Enter a password" />
-        <Button type="submit">Create User</Button>
+        <TextInput type="email" name="email" placeholder="email address" required />
+        <TextInput type="password" name="password" placeholder="password" required />
+        <Button type="submit">Sign in</Button>
         {error && <div>{error}</div>}
       </Form>
     </div>
   );
 }
 
-export default Register;
+export default Login;
