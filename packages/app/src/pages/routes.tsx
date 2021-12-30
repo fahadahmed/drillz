@@ -1,23 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import App from './App';
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { Register, Dashboard } from '.';
-import { AppContainer, AppProvider } from '../components';
+import { AppContainer, AppContext } from '../components';
 
 function AppRoutes() {
+  const { currentUser } = useContext(AppContext);
   return (
-    <AppProvider>
-      <AppContainer>
-        <Router>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/sign-up" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
-        </Router>
-      </AppContainer>
-    </AppProvider>
+    <AppContainer>
+      <Router>
+        <Routes>
+          {!currentUser && (
+            <>
+              <Route path="/sign-up" element={<Register />} />
+              <Route path="/sign-in" element={<Login />} />
+              <Route path="/" element={<Navigate to="/sign-in" />} />
+            </>
+          )}
+          {currentUser && <Route path="/dashboard" element={<Dashboard />} />}
+          <Route path="*" element={<Navigate to={currentUser ? '/dashboard' : '/sign-in'} />} />
+        </Routes>
+      </Router>
+    </AppContainer>
   );
 }
 
 export default AppRoutes;
+
+const Login = () => <div>Login Page</div>;
