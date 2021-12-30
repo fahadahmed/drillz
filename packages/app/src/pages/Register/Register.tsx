@@ -1,35 +1,15 @@
 import React, { useState, useContext, SyntheticEvent } from 'react';
-import styled from '@emotion/styled';
 import { Navigate } from 'react-router-dom';
 import { AppContext } from '../../components';
-import { auth, createUserWithEmailAndPassword } from '../../config/firebase';
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
-
-const TextInput = styled.input`
-  border: 1px solid #000;
-  padding: 12px;
-  color: #000000;
-  font-size: 20px;
-  margin: 12px;
-`;
-
-const Button = styled.button`
-  border: none;
-  background: #000;
-  padding: 12px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  margin: 12px;
-  &:hover {
-    background: #fff;
-    color: #000;
-  }
-`;
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  db,
+  doc,
+  setDoc,
+} from '../../config/firebase';
+import { Form, TextInput, Button } from '../../styles/common.styles';
 
 function Register() {
   const [error, setError] = useState(null);
@@ -46,13 +26,19 @@ function Register() {
       email: { value: string };
       password: { value: string };
     };
-    // const name = target.name.value;
+    const name = target.name.value;
     const email = target.email.value;
     const password = target.password.value;
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
+      .then(async (result) => {
         console.log(result.user);
+        updateProfile(result.user, {
+          displayName: name,
+        });
+        await setDoc(doc(db, 'userData', result.user.uid), {
+          habits: [],
+        });
       })
       .catch((err) => {
         console.log(err);

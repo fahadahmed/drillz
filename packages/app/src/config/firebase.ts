@@ -2,14 +2,17 @@ import { initializeApp } from 'firebase/app';
 import {
   getFirestore,
   collection,
+  doc,
   getDocs,
   addDoc,
+  setDoc,
   connectFirestoreEmulator,
 } from 'firebase/firestore/lite';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
   connectAuthEmulator,
 } from 'firebase/auth';
 import { getAnalytics } from 'firebase/analytics';
@@ -39,9 +42,12 @@ export {
   db,
   auth,
   collection,
+  doc,
   getDocs,
   addDoc,
+  setDoc,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
   analytics,
 };
