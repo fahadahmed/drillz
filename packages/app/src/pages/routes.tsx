@@ -6,7 +6,7 @@ import { AppContainer, AppContext } from '../components';
 function AppRoutes() {
   const { currentUser } = useContext(AppContext);
   return (
-    <AppContainer>
+    <AppContainer authenticated={currentUser ? true : false}>
       <Router>
         <Routes>
           {!currentUser && (
