@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { Register, Dashboard, Login } from '.';
+import { AddHabit, Dashboard, Login, Register } from '.';
 import { AppContainer, AppContext } from '../components';
 
 function AppRoutes() {
@@ -30,5 +30,3 @@ function AppRoutes() {
 }
 
 export default AppRoutes;
-
-const AddHabit = () => <h1>Add Habit</h1>;
