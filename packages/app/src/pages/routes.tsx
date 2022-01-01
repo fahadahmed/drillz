@@ -16,7 +16,12 @@ function AppRoutes() {
               <Route path="/" element={<Navigate to="/sign-in" />} />
             </>
           )}
-          {currentUser && <Route path="/dashboard" element={<Dashboard />} />}
+          {currentUser && (
+            <>
+              <Route path="/add-habit" element={<AddHabit />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+            </>
+          )}
           <Route path="*" element={<Navigate to={currentUser ? '/dashboard' : '/sign-in'} />} />
         </Routes>
       </Router>
@@ -25,3 +30,5 @@ function AppRoutes() {
 }
 
 export default AppRoutes;
+
+const AddHabit = () => <h1>Add Habit</h1>;
