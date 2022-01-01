@@ -26,3 +26,27 @@ export const Button = styled.button`
     color: #000;
   }
 `;
+
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+`;
+
+export const Pane = styled.div`
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  border: 2px solid #999;
+`;
+
+export const PaneHeader = styled.div`
+  border-bottom: 2px solid #999;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const PaneContent = styled.div`
+  padding: 16px;
+`;
