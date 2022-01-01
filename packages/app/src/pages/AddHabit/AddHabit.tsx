@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { GoodHabit } from './components';
+import { GoodHabit, BadHabit } from './components';
 
 const PageContainer = styled.div`
   padding: 16px;
@@ -22,11 +22,7 @@ function AddHabit() {
       </div>
       <div>
         {habitType === 'createHabit' && <GoodHabit />}
-        {habitType === 'breakHabit' && (
-          <div>
-            <h3>Break Bad Habit</h3>
-          </div>
-        )}
+        {habitType === 'breakHabit' && <BadHabit />}
       </div>
     </PageContainer>
   );
