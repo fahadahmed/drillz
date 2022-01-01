@@ -1,6 +1,8 @@
 import React, { ReactNode, FC } from 'react';
 import styled from '@emotion/styled';
 
+import { SideNavigation } from '..';
+
 const Container = styled.div`
   display: grid;
   height: 100vh;
@@ -16,6 +18,7 @@ const AuthenticatedContainer = styled.div`
   font-family: sans-serif;
   grid-template-columns: 2fr 10fr;
   grid-template-rows: auto;
+  background: #efefef;
 `;
 
 type Props = {
@@ -27,7 +30,7 @@ const AppContainer: FC<Props> = ({ children, authenticated }) => {
   if (authenticated) {
     return (
       <AuthenticatedContainer>
-        <div>Sidebar</div>
+        <SideNavigation />
         <div>{children}</div>
       </AuthenticatedContainer>
     );
