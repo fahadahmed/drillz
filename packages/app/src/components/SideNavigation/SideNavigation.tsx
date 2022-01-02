@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { AppContext } from '../AppProvider';
 import { auth } from '../../config/firebase';
@@ -16,6 +17,12 @@ function SideNavigation() {
   return (
     <SideBarContainer>
       <p>{currentUser.displayName}</p>
+      <div>
+        <li>
+          <Link to="/dashboard">All Habits</Link>
+        </li>
+        <li>Afternoon Routine</li>
+      </div>
       <h6>AREAS</h6>
       {AREAS.map((area) => (
         <li key={area}>{area}</li>

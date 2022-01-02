@@ -6,8 +6,8 @@ import { AppContainer, AppContext } from '../components';
 function AppRoutes() {
   const { currentUser } = useContext(AppContext);
   return (
-    <AppContainer authenticated={currentUser ? true : false}>
-      <Router>
+    <Router>
+      <AppContainer authenticated={currentUser ? true : false}>
         <Routes>
           {!currentUser && (
             <>
@@ -24,8 +24,8 @@ function AppRoutes() {
           )}
           <Route path="*" element={<Navigate to={currentUser ? '/dashboard' : '/sign-in'} />} />
         </Routes>
-      </Router>
-    </AppContainer>
+      </AppContainer>
+    </Router>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useContext, SyntheticEvent } from 'react';
 import { AppContext } from '../../../../components';
-import { db, setDoc, doc } from '../../../../config/firebase';
+import { db, setDoc, doc, getDoc } from '../../../../config/firebase';
 
 const UNITS = ['times', 'mins', 'ml', 'serve', 'cups'];
 const TIMEFRAME = ['daily', 'weekly', 'monthly'];
@@ -22,10 +22,13 @@ function GoodHabit() {
     const unit = target.unit.value;
     const timeframe = target.timeframe.value;
 
-    console.log('We need to create a new habit', currentUser);
-    console.log(habitName, goal, unit, timeframe);
+    const userData = await getDoc(doc(db, `userData/${currentUser.uid}`));
+    console.log(userData.data());
+    const userHabits = userData.data().habits;
+
     await setDoc(doc(db, 'userData', currentUser.uid), {
       habits: [
+        ...userHabits,
         {
           habitName,
           goal,
