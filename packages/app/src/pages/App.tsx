@@ -10,8 +10,6 @@ const Container = styled.div`
 `;
 
 function App() {
-  console.log(process.env.DRILLZ_APP_PROJECT_ID);
-
   const [tasks, setTasks] = useState(null);
   const [todo, setTodo] = useState('');
   const dbRef = collection(db, 'tasks');
