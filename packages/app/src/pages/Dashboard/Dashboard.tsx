@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Pane, PaneHeader, PaneContent } from '../../styles/common.styles';
+import { ShowHabits } from './components';
 
 function Dashboard() {
   return (
@@ -11,7 +12,7 @@ function Dashboard() {
           <Link to="/add-habit">Add Habit</Link>
         </PaneHeader>
         <PaneContent>
-          <p>This is the content section of the pane</p>
+          <ShowHabits />
         </PaneContent>
       </Pane>
       <Pane>
