@@ -1,12 +1,39 @@
-import React, { SyntheticEvent } from 'react';
+import React, { useContext, SyntheticEvent } from 'react';
+import { AppContext } from '../../../../components';
+import { db, setDoc, doc } from '../../../../config/firebase';
 
 const UNITS = ['times', 'mins', 'ml', 'serve', 'cups'];
 const TIMEFRAME = ['daily', 'weekly', 'monthly'];
 
 function GoodHabit() {
-  const createHabit = (e: SyntheticEvent) => {
+  const { currentUser } = useContext(AppContext);
+
+  const createHabit = async (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log('We need to create a new habit');
+    const target = e.target as typeof e.target & {
+      habitName: { value: string };
+      goal: { value: number };
+      unit: { value: string };
+      timeframe: { value: string };
+    };
+
+    const habitName = target.habitName.value;
+    const goal = target.goal.value;
+    const unit = target.unit.value;
+    const timeframe = target.timeframe.value;
+
+    console.log('We need to create a new habit', currentUser);
+    console.log(habitName, goal, unit, timeframe);
+    await setDoc(doc(db, 'userData', currentUser.uid), {
+      habits: [
+        {
+          habitName,
+          goal,
+          unit,
+          timeframe,
+        },
+      ],
+    });
   };
 
   return (
