@@ -23,7 +23,6 @@ function GoodHabit() {
     const timeframe = target.timeframe.value;
 
     const userData = await getDoc(doc(db, `userData/${currentUser.uid}`));
-    console.log(userData.data());
     const userHabits = userData.data().habits;
 
     await setDoc(doc(db, 'userData', currentUser.uid), {
