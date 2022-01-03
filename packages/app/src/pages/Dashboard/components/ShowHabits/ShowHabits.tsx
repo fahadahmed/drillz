@@ -7,6 +7,7 @@ interface Habit {
   goal: number;
   unit: string;
   timeframe: string;
+  id: string;
 }
 
 function ShowHabits() {
@@ -27,9 +28,7 @@ function ShowHabits() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div>
-      {habits && habits.map((habit: Habit, i: number) => <div key={i}>{habit.habitName}</div>)}
-    </div>
+    <div>{habits && habits.map((habit: Habit) => <div key={habit.id}>{habit.habitName}</div>)}</div>
   );
 }
 

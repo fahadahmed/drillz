@@ -1,4 +1,5 @@
 import React, { useContext, SyntheticEvent } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { AppContext } from '../../../../components';
 import { db, setDoc, doc, getDoc } from '../../../../config/firebase';
 
@@ -21,6 +22,7 @@ function GoodHabit() {
     const goal = target.goal.value;
     const unit = target.unit.value;
     const timeframe = target.timeframe.value;
+    const id = uuidv4();
 
     const userData = await getDoc(doc(db, `userData/${currentUser.uid}`));
     const userHabits = userData.data().habits;
@@ -29,6 +31,7 @@ function GoodHabit() {
       habits: [
         ...userHabits,
         {
+          id,
           habitName,
           goal,
           unit,
