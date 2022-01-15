@@ -1,5 +1,5 @@
 import React, { useState, useContext, SyntheticEvent } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import { AppContext } from '../../components';
 import { auth, signInWithEmailAndPassword } from '../../config/firebase';
 import { Form, TextInput, Button } from '../../styles/common.styles';
@@ -39,6 +39,7 @@ function Login() {
         <Button type="submit">Sign in</Button>
         {error && <div>{error}</div>}
       </Form>
+      <Link to="/sign-up">Register new user</Link>
     </div>
   );
 }
