@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import styled from '@emotion/styled';
 import { AppContext } from '../../../../components';
 import { db, doc, getDoc } from '../../../../config/firebase';
 
@@ -9,6 +10,11 @@ interface Habit {
   timeframe: string;
   id: string;
 }
+
+const HabitRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 function ShowHabits() {
   const [habits, setHabits] = useState(null);
@@ -27,8 +33,23 @@ function ShowHabits() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const logHabit = () => {
+    console.log('We neeed to log an event for the habit');
+  };
+
   return (
-    <div>{habits && habits.map((habit: Habit) => <div key={habit.id}>{habit.habitName}</div>)}</div>
+    <div>
+      {habits &&
+        habits.map((habit: Habit) => (
+          <HabitRow key={habit.id}>
+            {habit.habitName}
+            <div>
+              <button onClick={logHabit}>Log</button>
+            </div>
+          </HabitRow>
+        ))}
+    </div>
   );
 }
 
